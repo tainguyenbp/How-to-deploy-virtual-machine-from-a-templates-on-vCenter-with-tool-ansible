@@ -1,0 +1,15 @@
+# var vcenter
+vcenter_ip_hostname: "192.158.115.173"
+vcenter_username: "tainguyen@vsphere.local"
+vcenter_password: "tainguyenbp@nntai"
+vcenter_template: "Kubernetes-Master"
+vcenter_name_datacenter: "TAI_LAB"
+
+# var hosts esxi
+vsphere_esxi_host: "192.168.115.180"
+vsphere_esxi_host_datastore: "datastore1"
+vsphere_name_create_virtual: "Ansible-Kubernetes-Master"
+vsphere_folder: ""
+vsphere_guest_memory_mb: "8192"
+vsphere_guest_number_cpus: "4"
+vsphere_hostname_vps: "Kubernetes-Master"

@@ -1,0 +1,30 @@
+- name: Create virtual machine from a template
+  vmware_guest:
+    validate_certs: False
+    hostname: "{{ vcenter_ip_hostname }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    esxi_hostname: "{{ vsphere_esxi_host }}"
+    datacenter: "{{ vcenter_name_datacenter }}"
+    folder: "{{ vsphere_folder }}"
+    name: "{{ vsphere_name_create_virtual }}"
+    template: "{{ vcenter_template }}"
+    disk:
+    - size_gb: 100
+      type: thin
+      datastore: "{{ vsphere_esxi_host_datastore }}"
+    networks:
+    - name: VLAN_10
+      type: dhcp
+    - name: VLAN_115
+      type: dhcp
+    - name: VLAN_172
+      type: dhcp
+    hardware:
+      memory_mb: "{{ vsphere_guest_memory_mb }}"
+      num_cpus: "{{ vsphere_guest_number_cpus}}"
+    customization:
+      hostname: tai-test-lab
+    wait_for_ip_address: True
+    state: present
+  register: newvm

@@ -1,0 +1,5 @@
+- gather_facts: false
+  hosts: vmware 
+  connection: local
+  roles:
+    - template_vmware
